@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Accordion from './components/Accordion';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const options = [
+    {
+        title:'ICC World Test Championship',
+        content:'New Zealand won the inaugral edition'
+    },
+    {
+        title:'ICC World Cup',
+        content:'England winner in last edition'
+    },
+    {
+        title:'ICC T20 World Cup',
+        content:'West Indies winner in last edition'
+    }
+]
+
+const App = () =>{
+
+    return (
+        <div>
+            <Accordion options={options}/>
+        </div>
+    )
 }
 
 export default App;
