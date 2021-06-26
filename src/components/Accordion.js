@@ -2,23 +2,26 @@ import React, { useState } from 'react';
 
 
 const Accordion = ({options}) =>{
-    const [currentIndex, setCurrentIndex] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(null);
 
     const onTitleClick = (index) => {
-        setCurrentIndex(index);
+        setActiveIndex(index);
     }
 
+    //TODO : Understand working of -> onClick={()=>onTitleClick(index)}
+    
     const renderedOptions = options.map((option,index)=>{
+        const active = index === activeIndex ? 'active':'';
         return (
             <React.Fragment key={option.title}>
-                <div className="title"
-                  onClick={(index)=>onTitleClick(index)}>
+                <div className={`title ${active}`}
+                  onClick={()=>onTitleClick(index)}> 
                     <i className="dropdown icon"></i>
                     {option.title}
                 </div>
-                <div className="content ">
+                <div className={`content ${active}`}>
                     <p>
-                    {option.content}
+                        {option.content}
                     </p>
                 </div>
             </React.Fragment>
@@ -27,10 +30,9 @@ const Accordion = ({options}) =>{
 
     return(
         <div>
-        <div className="ui styled accordion">
-            {renderedOptions}
-        </div>    
-        <div>{currentIndex}</div>
+            <div className="ui styled accordion">
+                {renderedOptions}
+            </div>    
         </div>
     );
 }

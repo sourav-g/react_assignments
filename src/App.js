@@ -1,7 +1,8 @@
 import React from 'react';
-import Accordion from './components/Accordion';
+//import Accordion from './components/Accordion';
+import Search from './components/Search';
 
-const options = [
+/*const options = [
     {
         title:'ICC World Test Championship',
         content:'New Zealand won the inaugral edition'
@@ -14,13 +15,14 @@ const options = [
         title:'ICC T20 World Cup',
         content:'West Indies winner in last edition'
     }
-]
+]*/
+
 
 const App = () =>{
 
     return (
         <div>
-            <Accordion options={options}/>
+            <Search/>
         </div>
     )
 }
